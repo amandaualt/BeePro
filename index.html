@@ -13,14 +13,14 @@
     <link rel="stylesheet" href="/style/simulador.css" />
     <link rel="stylesheet" href="/style/style.css" />
     <title>Simulações</title>
-    <link rel="shortcut icon" href="assets/BeeProLogoP.svg">
+    <link rel="shortcut icon" href="assets/IconBeePro.png">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-light">
           <div class="container-fluid">
-              <a class="navbar-brand" href="home.html"><img src="assets/BeeProLogoP.svg" class="logoHead" alt="..." /></a>
+              <a class="navbar-brand" href="/"><img src="assets/BeeProLogo.png" class="logoHead" alt="..." /></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                   data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                   aria-expanded="false" aria-label="Toggle navigation">
@@ -29,10 +29,10 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                       <li class="nav-item">
-                          <a class="nav-link active" aria-current="page" href="home.html">Pagina Inicial</a>
+                          <a class="nav-link active" aria-current="page" href="/">Pagina Inicial</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="/">Simulador de Processos</a>
+                          <a class="nav-link" href="sobre.html">Sobre o BeeProo</a>
                       </li>
                       <li class="nav-item dropdown">
                           <a class="nav-link" href="processos.html">Processos de Software</a>
@@ -40,8 +40,8 @@
 
                   </ul>
                   <form class="d-flex">
-                      <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
-                      <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+                    <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
+                    <button class="btn btn-secondary" type="submit">Pesquisar</button>
                   </form>
               </div>
           </div>
@@ -54,72 +54,17 @@
           <div id="unity-progress-bar-full"></div>
         </div>
       </div>
-      <div id="unity-mobile-warning">
+      <!-- <div id="unity-mobile-warning">
         WebGL builds are not supported on mobile devices.
       </div>
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
         <div id="unity-build-title">Projeto_Ciclo_de_Vida</div>
-      </div>
+      </div> -->
     </div>
-    <script>
-      var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/0.1.loader.js";
-      var config = {
-        dataUrl: buildUrl + "/0.1.data.gz",
-        frameworkUrl: buildUrl + "/0.1.framework.js.gz",
-        codeUrl: buildUrl + "/0.1.wasm.gz",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "DefaultCompany",
-        productName: "Projeto_Ciclo_de_Vida",
-        productVersion: "0.1",
-      };
-
-      var container = document.querySelector("#unity-container");
-      var canvas = document.querySelector("#unity-canvas");
-      var loadingBar = document.querySelector("#unity-loading-bar");
-      var progressBarFull = document.querySelector("#unity-progress-bar-full");
-      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
-      var mobileWarning = document.querySelector("#unity-mobile-warning");
-
-      // By default Unity keeps WebGL canvas render target size matched with
-      // the DOM size of the canvas element (scaled by window.devicePixelRatio)
-      // Set this to false if you want to decouple this synchronization from
-      // happening inside the engine, and you would instead like to size up
-      // the canvas DOM size and WebGL render target sizes yourself.
-      // config.matchWebGLToCanvasSize = false;
-
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        container.className = "unity-mobile";
-        // Avoid draining fillrate performance on mobile devices,
-        // and default/override low DPI mode on mobile browsers.
-        config.devicePixelRatio = 1;
-        mobileWarning.style.display = "block";
-        setTimeout(() => {
-          mobileWarning.style.display = "none";
-        }, 5000);
-      } else {
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
-      }
-      loadingBar.style.display = "block";
-
-      var script = document.createElement("script");
-      script.src = loaderUrl;
-      script.onload = () => {
-        createUnityInstance(canvas, config, (progress) => {
-          progressBarFull.style.width = 100 * progress + "%";
-        }).then((unityInstance) => {
-          loadingBar.style.display = "none";
-          fullscreenButton.onclick = () => {
-            unityInstance.SetFullscreen(1);
-          };
-        }).catch((message) => {
-          alert(message);
-        });
-      };
-      document.body.appendChild(script);
+    <script src="index.js">
+    
     </script>
   </body>
 </html>
