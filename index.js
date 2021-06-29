@@ -1,13 +1,13 @@
 var buildUrl = "Build";
-var loaderUrl = buildUrl + "/0.1.loader.js";
+var loaderUrl = buildUrl + "/0.5.loader.js";
 var config = {
-  dataUrl: buildUrl + "/0.1.data.gz",
-  frameworkUrl: buildUrl + "/0.1.framework.js.gz",
-  codeUrl: buildUrl + "/0.1.wasm.gz",
+  dataUrl: buildUrl + "/0.5.data.unityweb",
+  frameworkUrl: buildUrl + "/0.5.framework.js.unityweb",
+  codeUrl: buildUrl + "/0.5.wasm.unityweb",
   streamingAssetsUrl: "StreamingAssets",
-  companyName: "DefaultCompany",
-  productName: "Projeto_Ciclo_de_Vida",
-  productVersion: "0.1",
+  companyName: "UTFPR",
+  productName: "BeeProv",
+  productVersion: "0.5",
 };
 
 var container = document.querySelector("#unity-container");
